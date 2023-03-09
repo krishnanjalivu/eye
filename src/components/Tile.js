@@ -1,4 +1,5 @@
 
+
 import { useState, useRef, useEffect } from "react";
 import "../Index.css";
 
@@ -44,8 +45,8 @@ function Tile(props) {
     const newTitle = prompt("Enter new title:", props.title);
     if (newTitle !== null && newTitle !== props.title) {
       props.onUpdate(props.id, position, newTitle);
-      // newTitle !== props.title
-    }
+      props.setTitle(newTitle);
+  }
   };
 
   const handleDeleteClick = () => {
