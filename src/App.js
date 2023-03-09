@@ -23,9 +23,9 @@ function App() {
       });
   };
 
-  const handleTileUpdate = (id, position) => {
+  const handleTileUpdate = (id, position,title) => {
     axios
-      .put(`/api/tiles/${id}`, { position })
+      .put(`/api/tiles/${id}`, { position ,title})
       .then((response) => {
         setTiles(
           tiles.map((tile) =>
@@ -52,6 +52,16 @@ function App() {
           position={tile.position}
           onUpdate={handleTileUpdate}
 onDelete={handleTileDelete}
+setTitle={(newTitle) => {
+            setTiles(
+              tiles.map((t) => {
+                if (t._id === tile._id) {
+                  return { ...t, title: newTitle };
+                }
+                return t;
+              })
+            );
+          }}
 />
 ))}
 </div>
