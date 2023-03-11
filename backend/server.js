@@ -8,7 +8,7 @@ main().catch(err => console.log(err));
  async function main() {
   //  await mongoose.connect("mongodb://127.0.0.1:27017/tiles",{useNewUrlParser:true});
   
-  await mongoose.connect('mongodb+srv://admin-krishnanjali:Maaku1234@cluster0.faxbf7r.mongodb.net/tiles?retryWrites=true&w=majority');
+
  }
 
 const app = express();
