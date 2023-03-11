@@ -1,8 +1,57 @@
+body {
+  background-color: #FF8787;
+  color: #ddd;
+}
+
+.App {
+  background-color: #25660c59;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.Tile {
+  background-color: #e0a17c;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.Tile__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+
+  
+}
+
+.Tile__body {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.Button {
+  background-color: #333;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 10px 20px;
+}
+
+.Button--delete {
+  background-color: #ff4d4d;
+}
 .tile {
     position: absolute;
     width: 200px;
     height: 200px;
-    background-color: #f8f8f8;
+    background-color: #F8C4B4;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
@@ -51,6 +100,7 @@ height: 16px;
 
 .tile-content {
 font-size: 14px;
+color: #333;
 }
 
 .add-tile {

@@ -44,8 +44,8 @@ function Tile(props) {
     const newTitle = prompt("Enter new title:", props.title);
     if (newTitle !== null && newTitle !== props.title) {
       props.onUpdate(props.id, position, newTitle);
-      // newTitle !== props.title
-    }
+      props.setTitle(newTitle);
+  }
   };
 
   const handleDeleteClick = () => {
@@ -55,7 +55,7 @@ function Tile(props) {
   };
 
   const updatePosition = () => {
-    props.onUpdate(props.id, position);
+    props.onUpdate(props.id, position,props.title);
   };
 
   return (
@@ -68,10 +68,10 @@ function Tile(props) {
       <div className="tile-header">
         <div className="tile-title">{props.title}</div>
         <div className="tile-actions">
-          <button className="tile-action" onClick={handleEditClick}>
+          <button className="tile-action btn btn-sm btn-primary" onClick={handleEditClick}>
             EDIT
           </button>
-          <button className="tile-action" onClick={handleDeleteClick}>
+          <button className="tile-action btn btn-sm btn-primary" onClick={handleDeleteClick}>
             DELETE
           </button>
         </div>

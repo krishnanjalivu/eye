@@ -6,25 +6,21 @@ const Tile = require("./models/tile");
 main().catch(err => console.log(err));
 
  async function main() {
-   await mongoose.connect("mongodb://127.0.0.1:27017/tiles",{useNewUrlParser:true});
+  //  await mongoose.connect("mongodb://127.0.0.1:27017/tiles",{useNewUrlParser:true});
   
- 
-   // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
+  await mongoose.connect('mongodb+srv://admin-krishnanjali:Maaku1234@cluster0.faxbf7r.mongodb.net/tiles?retryWrites=true&w=majority');
  }
 
 const app = express();
 
 app.use(bodyParser.json());
 
-// GET /api/tiles
-// Retrieves the list of tiles from the database.
 app.get("/api/tiles", async (req, res) => {
   const tiles = await Tile.find();
   res.json(tiles);
 });
 
-// POST /api/tiles
-// Creates a new tile in the database.
+
 app.post("/api/tiles", async (req, res) => {
   const tile = new Tile({
     title: req.body.title,
@@ -34,17 +30,20 @@ app.post("/api/tiles", async (req, res) => {
   res.json(tile);
 });
 
-// PUT /api/tiles/:id
-// Updates the position of a tile in the database.
+
 app.put("/api/tiles/:id", async (req, res) => {
+console.log("Updating tile with id:", req.params.id);
+console.log("Request body:", req.body);
   const tile = await Tile.findById(req.params.id);
+  console.log("Tile found:", tile);
   tile.position = req.body.position;
+  tile.title=req.body.title;
   await tile.save();
+  console.log("Updated tile:", tile);
   res.json(tile);
 });
 
-// DELETE /api/tiles/:id
-// Deletes a tile from the database.
+
 app.delete("/api/tiles/:id", async (req, res) => {
   await Tile.findByIdAndDelete(req.params.id);
   res.json({ message: "Tile deleted" });
