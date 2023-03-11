@@ -56,7 +56,7 @@ function Tile(props) {
   };
 
   const updatePosition = () => {
-    props.onUpdate(props.id, position);
+   props.onUpdate(props.id, position,props.title);
   };
 
   return (
